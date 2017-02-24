@@ -8,7 +8,7 @@ class Hero(Sprite):
         self.screen = screen
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
-
+        self.speed = 1
         self.rect.centery = self.screen_rect.centery
         self.rect.left = self.screen_rect.left
 
@@ -20,13 +20,13 @@ class Hero(Sprite):
     def draw_me(self):
         self.screen.blit(source = self.image, dest = self.rect)
 
-    def update_me(self, settings):
+    def update_me(self):
         if self.moving_right:
-            self.rect.centerx += 10 * settings.speed
+            self.rect.centerx += 10 * self.speed
         if self.moving_left:
-            self.rect.centerx -= 10 * settings.speed
+            self.rect.centerx -= 10 * self.speed
 
         if self.moving_up:
-            self.rect.centery -= 10 * settings.speed
+            self.rect.centery -= 10 * self.speed
         if self.moving_down:
-            self.rect.centery += 10 * settings.speed
+            self.rect.centery += 10 * self.speed
